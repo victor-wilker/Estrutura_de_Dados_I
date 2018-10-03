@@ -41,6 +41,7 @@ class Lista{
 		bool vazia();
 		// insere no início 
 		void inserirIni(int info);
+		void inserirMeio(int info,int pos);
 		//inserir no final da lista
 		void inserirFim(int info);		
 		//busca um valor na lista 

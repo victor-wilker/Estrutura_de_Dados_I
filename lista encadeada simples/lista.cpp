@@ -1,6 +1,11 @@
 #include <iostream>
 #include "lista.hpp"
 
+/* 
+	Nome: Victor Wilker
+	Semestre : 3º
+*/
+
 using namespace std;
 
 
@@ -96,6 +101,36 @@ void Lista::inserirFim(int info)
 		fim = aux2;
 	}
 }		
+void Lista::inserirMeio(int info,int pos)
+{
+	No * aux = ini; // O ant guarda o ponteiro para o nó anterior
+	No * aux2 = ini->getProx(); // O pos guarda o ponteiro para o atual
+	int cont =0;
+	if (pos <= this->Sizes() && pos>0)
+	{
+		if (pos == 1)
+		{
+			this->inserirIni(info);
+		}else{
+			while(pos >cont) {
+				aux = aux2; // Guarda o ponteiro para o nó atual, que será o anterior
+				aux2 = aux2->getProx(); // Vai para o próximo nó
+				cont ++;
+			}
+		// Quando encontrou a posição correta na ordem crescente
+			No * novo = new No(info); // Cria um novo nó
+			
+			novo->setProx(aux2); // Aponta para o próximo nó
+			aux->setProx(novo); // Nó anterior aponta para o novo nó
+		
+		}
+		cout<< "Inseriu elemento na posicao: "<< pos <<endl;
+	}else{
+		cout<< "Posicao nao existe\n";
+	}
+	
+}		
+			
 			
 		//busca um valor na lista 
 bool Lista::busca(int info)
