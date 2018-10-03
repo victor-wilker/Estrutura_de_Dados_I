@@ -45,7 +45,7 @@ public:
 	}
 	
 	
-	void push(int info)
+	void insere(int info)
 	{
 		No * aux = new No();
 		aux->setInfo(info);
@@ -62,7 +62,7 @@ public:
 		return ini;
 	}
 
-	void pop()
+	void removerEle()
 	{
 	   No *aux;
 		if(ini==NULL) {
@@ -77,16 +77,36 @@ public:
 	{
 	    No * aux;
 
-		if(ini==NULL) {
-			cout <<"ERRO: Fila vazia\n";
-
-		}
+		
 		aux=ini;
+		int cont=1;
+			cout<<"\n    ------ Fila -----\n";
 		while(aux!=NULL) {
-			cout<< aux->getInfo() <<endl;
+			cout<<"\t"<<cont<<"º ( " << aux->getInfo()<<" )"<<endl;
+				
 			aux = aux->getProx();
 		}
+		if(vazia()) {
+			cout <<"       Fila vazia\n";
+		}
+		 cout<<"    -----------------\n";
 	}
+
+	bool vazia(){
+	if(ini != NULL){
+		return false;
+	}
+	else{
+		return true;
+		}
+	}
+	void liberar(){
+		while(ini != NULL){
+			removerEle();
+		}	
+	}
+
+
 
 };
  
@@ -95,23 +115,13 @@ public:
  int main(){
  	Fila f1 ;
  	Fila f2 ;
- 	f1.push(1);
- 	f1.push(2);
- 	f1.push(5);
- 	f2.push(1);
- 	f2.push(2);
- 	f2.push(5);
- 	f2.print();
+ 	f1.insere(1);
+ 	f1.insere(2);
+ 	f1.insere(5);
  	
- 	No * aux = f1.retorno();
- 	No * aux1 = f2.retorno();
- 	while(aux->getProx() != NULL and aux1->getProx()){
- 		
-
-
- 		aux1= aux1->getProx();
- 		aux= aux->getProx();
- 	}
+ 	f1.print();
+ 	f1.liberar();
+ 	f1.print();
 
  	return 0;
  }
