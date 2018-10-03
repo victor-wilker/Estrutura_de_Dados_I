@@ -4,7 +4,7 @@
 using namespace std;
 /* 
 	Nome: Victor Wilker
-	Semestre : 3º
+	Estrutura de Dados I
 */
 
 No::No (int info){

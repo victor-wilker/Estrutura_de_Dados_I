@@ -3,8 +3,9 @@
 
 /* 
 	Nome: Victor Wilker
-	Semestre : 3º
+	Estrutura de Dados I
 */
+
 int main(int argc, char const *argv[])
 {
 	Lista exemplo;

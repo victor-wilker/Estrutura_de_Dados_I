@@ -4,7 +4,7 @@
 using namespace std;
 /* 
 	Nome: Victor Wilker
-	Semestre : 3º
+	Estrutura de Dados I
 */
 
 
@@ -32,16 +32,16 @@ class Fila
 {
 private:
     No * ini;
-    No * fim;    
+    No * fim;   
 public:
 	Fila()
 	{
 	    ini = NULL;
-	    fim = NULL;
+		fim = NULL;
 	}
 	~Fila(){
+		liberar();
 		delete ini;
-		delete fim;
 	}
 	
 	
@@ -55,13 +55,13 @@ public:
 		}else{
 			fim->setProx(aux); // faz com que o ponteiro prox que fim aponta aponte para aux
 			fim = aux; //fim recebe aux
-			aux->setProx(NULL); //ponteiro prox de aux recebe null(ou seja fim da fila)
+			aux->setProx(NULL); //ponteiro prox de aux recebe o fim da fila
 		}
 	}
-	No * retorno(){
+	No * retornoNo(){
 		return ini;
 	}
-
+	//remove apenas um elemento da fila
 	void removerEle()
 	{
 	   No *aux;
@@ -72,7 +72,7 @@ public:
 		ini = ini->getProx(); //inicio recebe o proximo elemento da fila
 		delete(aux);
 	}
-
+	//exibe fila
 	void print()
 	{
 	    No * aux;
@@ -83,23 +83,60 @@ public:
 			cout<<"\n    ------ Fila -----\n";
 		while(aux!=NULL) {
 			cout<<"\t"<<cont<<"º ( " << aux->getInfo()<<" )"<<endl;
-				
 			aux = aux->getProx();
+			cont ++;
 		}
 		if(vazia()) {
 			cout <<"       Fila vazia\n";
 		}
 		 cout<<"    -----------------\n";
 	}
-
-	bool vazia(){
-	if(ini != NULL){
-		return false;
-	}
-	else{
-		return true;
+	void busca(int info){
+		cout <<"--Busca pelo elemento: "<<info<<endl<<endl;
+		Fila aux;
+		int cont = 0, cont1 = -1;
+		bool teste;
+		if (vazia())
+		{
+			this->print();	
+		}else{
+				while(vazia()){
+				if(ini->getInfo() == info){
+					teste = true;
+					cont1 = cont;
+				}
+				//fila auxiliar
+				aux.insere(ini->getInfo());	
+				removerEle();
+				cont++;
+			}
+			//insere na sequencia correta a fila
+			while(!aux.vazia()){
+				insere(aux.retornoNo()->getInfo());	
+				aux.removerEle();
+			}
+			if(teste != true){
+				cout << " Elemento -> "<< info<<" encontrado " << endl;
+			}
+			else{
+				cout <<"Elemento nao encontrado" << endl;
+			}	
 		}
+		
+}
+
+
+
+	//verifica se a fila está vazia
+	bool vazia(){
+		if(ini != NULL){
+			return false;
+		}
+		else{
+			return true;
+			}
 	}
+	//libera toda a fila
 	void liberar(){
 		while(ini != NULL){
 			removerEle();
@@ -118,10 +155,15 @@ public:
  	f1.insere(1);
  	f1.insere(2);
  	f1.insere(5);
- 	
+ 	f1.insere(6);
+ 	f1.insere(9);
+ 	f1.print();
+ 	f1.busca(2);
+ 	f1.removerEle();
  	f1.print();
  	f1.liberar();
  	f1.print();
+ 	
 
  	return 0;
  }

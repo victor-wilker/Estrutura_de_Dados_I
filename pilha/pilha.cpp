@@ -3,7 +3,7 @@
 using namespace std;
 /* 
 	Nome: Victor Wilker
-	Semestre : 3º
+	Estrutura de Dados I
 */
 
 
@@ -38,6 +38,7 @@ public:
 	    top = NULL;
 	}
 	~Pilha(){
+		remove();
 		delete top;
 	}
 	No * retornoNo(){
@@ -175,9 +176,9 @@ int main() {
     Exemplo.push(5);
     Exemplo.push(6);
     Exemplo.push(7);
+    Exemplo.print();
     Exemplo.busca(10);
     Exemplo.busca(5);
- 
 	Exemplo.print();
  	Exemplo.pop();   
     Exemplo.remove();
