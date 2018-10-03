@@ -118,13 +118,14 @@ void Lista::inserirMeio(int info,int pos)
 {
 	No * aux = ini; // O ant guarda o ponteiro para o nó anterior
 	No * aux2 = ini->getProx(); // O pos guarda o ponteiro para o atual
-	int cont =0;
+	int cont =2;
 	if (pos <= this->Sizes() && pos>0)
 	{
 		if (pos==1)
 		{
 			inserirIni(info);
 		}else{
+		
 			while(pos > cont) {
 				aux = aux2; // Guarda o ponteiro para o nó atual, que será o anterior
 				aux2 = aux2->getProx(); // Vai para o próximo nó
@@ -143,6 +144,43 @@ void Lista::inserirMeio(int info,int pos)
 	}
 }		
 		
+
+// void List::addAt(int pos, int data){
+// 	if(pos < 0 || pos >= size()){
+// 		cout << endl << "posicao inexistente" << endl;
+// 		return;
+// 	}
+
+// 	int cont = 0;
+// 	Node *newNode = new Node;
+// 	Node *temp = head;
+// 	newNode->setValue(data);
+
+// 	if(pos == 0){
+// 		newNode->setNext(head);
+// 		newNode->setPrev(NULL);
+// 		head->setPrev(newNode);
+// 		head = newNode;
+// 		return;
+// 	}
+
+// 	while(cont < pos){
+// 		temp = temp->getProx();
+// 		cont++;
+// 	}
+// 	newNode->setNext(temp);
+// 	newNode->setPrev(temp->getPrev());
+// 	temp->getPrev()->setNext(newNode);	//atualiza o ponteiro anterior a posicao em que sera inserido para o novo noh
+// 	temp->setPrev(newNode);
+// }
+
+
+
+
+
+
+
+
 
 
 		//busca um valor na lista 
@@ -270,7 +308,7 @@ void Lista::RemoveM(int pos)
 		
 			cont++;	
 		}
-		cout << "posicao nao existe!\n";
+		cout << "removeu posicao: " <<pos<<endl;
 	}
 
 	

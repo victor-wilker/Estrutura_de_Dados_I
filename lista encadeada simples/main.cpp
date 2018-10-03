@@ -16,7 +16,7 @@ int main(int argc, char const *argv[])
 	exemplo.inserirFim(5);	
 	exemplo.inserirFim(6);	
 	exemplo.inserirIni(0);
-		exemplo.inserirMeio(45,4);
+		exemplo.inserirMeio(45,6);
 
 	exemplo.printar();	
 

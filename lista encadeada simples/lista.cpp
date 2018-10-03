@@ -105,7 +105,7 @@ void Lista::inserirMeio(int info,int pos)
 {
 	No * aux = ini; // O ant guarda o ponteiro para o nó anterior
 	No * aux2 = ini->getProx(); // O pos guarda o ponteiro para o atual
-	int cont =0;
+	int cont =2;
 	if (pos <= this->Sizes() && pos>0)
 	{
 		if (pos == 1)
