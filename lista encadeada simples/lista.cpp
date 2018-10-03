@@ -38,6 +38,7 @@ Lista::Lista(){//inicializar lista vazia
 Lista::~Lista() // destrutor
 {
 	delete ini;
+	delete fim;
 }
 
 		// mostra todos os elementos da lista

@@ -41,6 +41,7 @@ public:
 	}
 	~Fila(){
 		delete ini;
+		delete fim;
 	}
 	
 	
