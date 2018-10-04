@@ -38,6 +38,7 @@ Lista::Lista(){//inicializar lista vazia
 
 Lista::~Lista() // destrutor
 {
+	liberar();
 	delete ini;
 	delete fim;
 }
@@ -105,8 +106,8 @@ void Lista::inserirFim(int info)
 }		
 void Lista::inserirMeio(int info,int pos)
 {
-	No * aux = ini; // O ant guarda o ponteiro para o nó anterior
-	No * aux2 = ini->getProx(); // O pos guarda o ponteiro para o atual
+	No * aux = ini; // O aux é o ponteiro para o anterior
+	No * aux2 = ini->getProx(); // O aux é o ponteiro para o proximo
 	int cont =2;
 	if (pos <= this->Sizes() && pos>0)
 	{
@@ -115,14 +116,15 @@ void Lista::inserirMeio(int info,int pos)
 			this->inserirIni(info);
 		}else{
 			while(pos >cont) {
-				aux = aux2; // Guarda o ponteiro para o nó atual, que será o anterior
+				// recebe ponteiro para o nó atual, que será o anterior
+				aux = aux2; 
 				aux2 = aux2->getProx(); // Vai para o próximo nó
 				cont ++;
 			}
 		// Quando encontrou a posição correta na ordem crescente
 			No * novo = new No(info); // Cria um novo nó
-			
-			novo->setProx(aux2); // Aponta para o próximo nó
+			// Aponta para o próximo nó
+			novo->setProx(aux2); 
 			aux->setProx(novo); // Nó anterior aponta para o novo nó
 		
 		}
@@ -259,140 +261,27 @@ void Lista::RemoveM(int pos)
 
 		}
 		
-	}
+	}	
+}
+// função auxiliara para limpar lista
+void Lista::RemoveAux(){
 
-	
-	
+	if(ini->getProx() == NULL){
+			ini = NULL;
+	}else if(ini->getProx()->getProx() == NULL){
+			ini->setProx(NULL);
+	}else{
+		No* exe = ini;
+		ini = ini->getProx();
+		exe->setProx(exe);
+		delete exe;
+	}
+}
+//remove todos os elementos da lista
+void Lista::liberar(){
+		cout << "** esvaziando lista **" <<endl;
+		while(ini != NULL){
+			RemoveAux();
+		}	
 }
 
-
-
-
-
-// void Lista::insertLefRi(int info){
-// 	if (info % 2 == 0)
-// 	{
-// 		inserirFim(info);
-// 	}else{
-// 		inserirIni(info);
-// 	}	
-// }
-
-
-
-// int Lista::calcImpPar(int cont , int cont1,No* aux){
-// 	aux = ini;
-// 	if(!vazia()){
-// 		if (aux->getInfo()%2 == 0)
-// 		{
-// 			cont++;
-// 			ini = aux->getProx();
-// 			return calcImpPar(cont, cont1,aux);
-// 		}else{
-// 			cont1++;
-// 			ini = aux->getProx();
-// 			return calcImpPar(cont , cont1,aux);
-// 		}
-// 	}else{
-// 		if (cont >cont1 )
-// 		{
-// 			cout << "Pares em maior numero: "<<(cont)<< endl;
-// 		}else if (cont < cont1 )
-// 		{
-// 			cout << "Impares em maior numero: "<<(cont1)<< endl;
-// 		}else{
-// 			cout << "Impares e Pares tem em mesma quantidade: "<<cont1<< endl;
-// 		}
-// 	}
-
-// }
-
-// int Lista::recursivaContar(int cont,No * aux){
-// 	aux = ini;
-// 	if (!vazia())
-// 	{
-// 		cont = cont+1;
-// 		ini = aux->getProx();
-// 		return recursivaContar(cont,aux);
-// 	}else{
-// 		cout <<"A lista possui tamanho: "<< cont<<endl;
-// 	}
-// }
-
-// bool Lista::Ordenacao() {
-//     // Assume-se que a lista está ordenada.
-   	
-//     if(vazia()){
-// 		return 0;
-// 	}
-		
-// 	No* aux = ini;
-// 	No* aux1 = ini->getProx();
-// 	int tamanho = 0;
-	
-// 	// percorre a lista
-// 	do
-// 	{
-// 		if ( aux1->getInfo() <  aux->getInfo()) return false;
-// 		aux = aux->getProx();
-// 		aux1 = aux1->getProx();
-// 	}
-// 	while(aux1);
-// 	return true;
-
-// }
-
-// Lista * Alternar(Lista l1,Lista l2) {
-//     Lista L;
-// 	No * p1 = l1;
-// 	No * p2 = l2;	
-		
-// 	for (p1=l1 , p2=l2 ; !p1.vazia() and !p1.vazia(); p1.getProx(),p2 = p2.getProx() )
-// 		{
-// 			// lc->info = p1->info;
-// 			// lc->prox = p1->prox;
-// 			// lc->info = p2->info;
-// 			// lc->prox = p2->prox;
-// 		}	
-
-
-	
-// 	return L;
-// }
-
-
-
-
-// /*bool Lista::fibVerificar(){
-// 	No* aux = ini;
-			
-// 	while(aux)
-// 	{
-// 		if(ini->getInfo() == 1){
-// 			return true;
-// 		}
-// 		if(  ){
-// 			return true;
-// 		}
-// 		aux4 = aux4->getProx();
-// 	}
-// 	return false;
-
-// }
-// */
-// // void Lista::intercala (Lista* l, Lista* l2){		
-// // 		Lista  li;
-// // 		Lista  p1;
-// // 		Lista  p2;
-	
-// // 		for(p1 =l, p2 =l2; p1 != NULL && p2!=NULL; p1 =p1->getProx(), p2=p2->getProx()){
-// // 			li->getInfo() = p1->getInfo();
-// // 			li->getProx() = p1->getProx();
-// // 			li->getInfo() = p2->getInfo();
-// // 			li->getProx()= p2->getProx();
-// // 		}
-		
-// // }
-
-// // fim->setProx(aux2);
-// // fim = aux2;

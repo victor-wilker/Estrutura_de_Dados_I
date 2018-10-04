@@ -17,16 +17,18 @@ int main(int argc, char const *argv[])
 	exemplo.inserirFim(6);	
 	exemplo.inserirIni(0);
 	exemplo.inserirMeio(45,6);
-	if (exemplo.buscar(6) == true)
+	if (exemplo.busca(6) == true)
 	{
 		cout << "elemento encontrado\n";
 	}else{
 		cout << "elemento nao encontrado\n";
 	}
-	exemplo.printar();	
 
+	exemplo.printar();	
 	exemplo.RemoveM(5);
 	exemplo.RemoveIni();
 	exemplo.printar();
+	exemplo.liberar();
+	exemplo.printar();	
 	return 0;
 }

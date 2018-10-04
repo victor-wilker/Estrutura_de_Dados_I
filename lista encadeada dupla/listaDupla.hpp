@@ -52,13 +52,9 @@ class Lista{
 		void RemoveIni();
 		void RemoveFim();
 		void RemoveM(int pos);
-// 		void insertLefRi(int info);
-//  		int calcImpPar(int cont , int cont1,No * aux);
-//  		int recursivaContar(int cont,No * aux);
-//  		bool Ordenacao();
-// // //		bool fibVerificar();
-// // 		void insere();
-// // 		void intercala (Lista* l, Lista* l2);
+		void RemoveAux();
+		void liberar();
+
 
 };
 

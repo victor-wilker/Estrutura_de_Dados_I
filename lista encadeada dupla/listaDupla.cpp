@@ -46,6 +46,7 @@ Lista::Lista(){//inicializar lista vazia
 
 Lista::~Lista() // destrutor
 {
+	liberar();
 	delete ini;
 	delete fim;
 }
@@ -144,46 +145,6 @@ void Lista::inserirMeio(int info,int pos)
 		cout<< "Posicao nao existe\n";
 	}
 }		
-		
-
-// void List::addAt(int pos, int data){
-// 	if(pos < 0 || pos >= size()){
-// 		cout << endl << "posicao inexistente" << endl;
-// 		return;
-// 	}
-
-// 	int cont = 0;
-// 	Node *newNode = new Node;
-// 	Node *temp = head;
-// 	newNode->setValue(data);
-
-// 	if(pos == 0){
-// 		newNode->setNext(head);
-// 		newNode->setPrev(NULL);
-// 		head->setPrev(newNode);
-// 		head = newNode;
-// 		return;
-// 	}
-
-// 	while(cont < pos){
-// 		temp = temp->getProx();
-// 		cont++;
-// 	}
-// 	newNode->setNext(temp);
-// 	newNode->setPrev(temp->getPrev());
-// 	temp->getPrev()->setNext(newNode);	//atualiza o ponteiro anterior a posicao em que sera inserido para o novo noh
-// 	temp->setPrev(newNode);
-// }
-
-
-
-
-
-
-
-
-
-
 		//busca um valor na lista 
 bool Lista::busca(int info)
 {
@@ -311,8 +272,28 @@ void Lista::RemoveM(int pos)
 		}
 		cout << "removeu posicao: " <<pos<<endl;
 	}
-
-	
 	
 }
+
+void Lista::RemoveAux(){
+
+	if(ini->getProx() == NULL){
+			ini = NULL;
+	}else if(ini->getProx()->getProx() == NULL){
+			ini->setProx(NULL);
+	}else{
+		No* exe = ini;
+		ini = ini->getProx();
+		exe->setProx(exe);
+		delete exe;
+	}
+}
+void Lista::liberar(){
+	cout << "** esvaziando lista **" <<endl;
+		while(ini != NULL){
+			RemoveAux();
+		}	
+}
+
+
 

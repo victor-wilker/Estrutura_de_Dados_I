@@ -44,9 +44,11 @@ class Lista{
 		bool busca(int info);
 		//retorna o tamanho de uma lista
 		int Sizes();
-		void RemoveFim();
-		void RemoveIni();
+		void RemoveFim();//remove elementos do fim da lista
+		void RemoveIni();//remove elementos do inicio da lista
 		void RemoveM(int pos);
+		void RemoveAux();//auxiliar para remover elementos
+		void liberar();//remove todos os elementos da lista
 
 
 };

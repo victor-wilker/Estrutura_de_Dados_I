@@ -25,12 +25,14 @@ int main(int argc, char const *argv[])
 	exemplo.RemoveIni();
 	exemplo.RemoveM(2);
 	exemplo.printar();	
-	if (exemplo.buscar(6) == true)
+	if (exemplo.busca(5) == true)
 	{
-		cout << "elemento encontrado\n";
+		cout << "elemento encontrado!!\n";
 	}else{
 		cout << "elemento nao encontrado\n";
 	}
-	
+	exemplo.printar();	
+	exemplo.liberar();
+	exemplo.printar();
 	return 0;
 }
