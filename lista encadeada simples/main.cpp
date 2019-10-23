@@ -24,7 +24,7 @@ int main(int argc, char const *argv[])
 		cout << "elemento nao encontrado\n";
 	}
 
-	exemplo.printar();	
+	// exemplo.printar();	
 	exemplo.RemoveM(5);
 	exemplo.RemoveIni();
 	exemplo.printar();
