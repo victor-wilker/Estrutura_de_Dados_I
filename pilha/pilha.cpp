@@ -67,7 +67,7 @@ public:
 	void pop()
 	{
 	    if(top == NULL)
-	            cout<< "Impossivel realizar operacao\n";
+	            cout<< "Impossible to perform operation\n";
 	    else
 	    {
 	        No * aux = top;
@@ -80,7 +80,7 @@ public:
 	{
 	    No * aux;
 	    aux = top;
-	   	cout<<"\n    ---- Pilha -----\n";
+	   	cout<<"\n    ---- stack -----\n";
 	    int cont=1;
 	    while(aux!=NULL)
 	    {
@@ -91,7 +91,7 @@ public:
 	    }
 	    if (vazia()==true)
 	    {
-	    	cout<<"     pilha vazia\n";
+	    	cout<<"     stack empty\n";
 	    }
 	    cout<<"    -----------------\n";
 	}
@@ -127,7 +127,7 @@ public:
 
 		//faz a busca de elementos na pilha
 		void busca(int info){
-			cout <<"--Busca pelo elemento: "<<info<<endl<<endl;
+			cout <<"-- seeking element: "<<info<<endl<<endl;
 			int cont = 1;
 			Pilha aux;
 			bool teste=false;
@@ -137,7 +137,7 @@ public:
 						push(aux.retornoNo()->getInfo());
 						aux.pop();
 					}
-					cout << " Elemento: "<< info<<" encontrado na "<< cont << "º posicao" << endl;
+					cout << " Element: "<< info<<" found "<< cont << "º position" << endl;
 					teste = true;
 					break;
 				}
@@ -147,7 +147,7 @@ public:
 			}
 			if (teste ==false)
 			{
-				cout << "Esse elemeto nao existe" << endl;
+				cout << "Element not exist" << endl;
 			}
 			while(!aux.vazia()){//recoloca os elementos 
 				push(aux.retornoNo()->getInfo());
